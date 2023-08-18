@@ -12,10 +12,16 @@ const Spells = () => {
   useEffect(() => {
     const url = `${BASE_URL}Spells`;
     setIsLoading(true);
-    axios.get(url).then((response) => {
-      setSpellData(response.data);
-      setIsLoading(false);
-    });
+    const fetch = async () => {
+      try {
+        const {data} = await axios.get(url);
+        setSpellData(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetch();
   }, []);
 
 
@@ -43,7 +49,7 @@ const Spells = () => {
             <p className="bg-purple-200 w-full">{spell.time}</p>
           )}
           <div>
-            <Link to={`/spells/${spell.name}`}>Learn More</Link>
+            <Link to={`/spells/${spell.id}`}>Learn More</Link>
           </div>
         </div>
       )

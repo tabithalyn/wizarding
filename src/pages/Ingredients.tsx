@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../api/api";
 import axios from "axios";
 import { IngredientType } from "../types";
-import { Link } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 
 const Ingredients = () => {
@@ -12,10 +11,16 @@ const Ingredients = () => {
   useEffect(() => {
     const url = `${BASE_URL}Ingredients`;
     setIsLoading(true);
-    axios.get(url).then((response) => {
-      setIngredientsData(response.data);
-      setIsLoading(false);
-    });
+    const fetch = async () => {
+      try {
+        const {data} = await axios.get(url);
+        setIngredientsData(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetch();
   }, []);
 
 
@@ -30,9 +35,6 @@ const Ingredients = () => {
       return (
         <div key={id} className="bg-gray-200 flex flex-wrap border border-gray-400 p-3 w-1/4">
           <h5 className="bg-blue-400 w-full">{ingredients.name}</h5>
-          <div>
-            <Link to={`/ingredients/${ingredients.name}`}>Learn More</Link>
-          </div>
         </div>
       );
     })}

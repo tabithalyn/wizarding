@@ -12,10 +12,16 @@ const Houses = () => {
   useEffect(() => {
     const url = `${BASE_URL}Houses`;
     setIsLoading(true);
-    axios.get(url).then((response) => {
-      setHousesData(response.data);
-      setIsLoading(false);
-    });
+    const fetch = async () => {
+      try {
+        const {data} = await axios.get(url);
+        setHousesData(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetch();
   }, []);
 
 

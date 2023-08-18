@@ -5,6 +5,10 @@ export type ElixirType = {
   sideEffects: string;
   characteristics: string;
   time: string;
+  ingredients: [{
+    id: number;
+    name: string;
+  }];
 }
 
 export type HousesType = {
@@ -20,9 +24,9 @@ export type SpellType = {
   id: string;
   name: string;
   effect: string;
-  sideEffects: string;
-  characteristics: string;
-  time: string;
+  incantation: string;
+  type: string;
+  light: string;
 }
 
 export type IngredientType = {

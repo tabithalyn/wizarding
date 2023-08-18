@@ -8,7 +8,6 @@ import HouseDetail from "./pages/HouseDetail";
 import Spells from "./pages/Spells";
 import SpellDetail from "./pages/SpellDetail";
 import Ingredients from "./pages/Ingredients";
-import IngredientDetail from "./pages/IngredientDetail";
 
 // https://wizard-world-api.herokuapp.com/swagger/index.html
 
@@ -25,9 +24,8 @@ function App() {
         <Route path="/houses" element={<Houses />} />
         <Route path="/houses/:id" element={<HouseDetail />} />
         <Route path="/spells" element={<Spells />} />
-        <Route path="/spell/:id" element={<SpellDetail />} />
+        <Route path="/spells/:id" element={<SpellDetail />} />
         <Route path="/ingredients" element={<Ingredients />} />
-        <Route path="/ingredients/:id" element={<IngredientDetail />} />
       </Routes>
     </>
   );

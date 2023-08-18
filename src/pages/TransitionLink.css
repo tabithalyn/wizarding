@@ -1,0 +1,26 @@
+.transition-link {
+  overflow: hidden;
+  position: relative;
+}
+
+.transition-link:before {
+  content: attr(data-hover);
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  position: absolute;
+  top: 95%;
+  left: 0;
+  transition: all 0.2s ease-in-out;
+  font-style: italic;
+  letter-spacing: 0.5;
+}
+
+.transition-link:hover:before {
+  content: attr(data-hover);
+  height: 100%;
+  top: 0;
+  transition: all 0.2s ease-in-out;
+  font-style: italic;
+  letter-spacing: 0.5;
+}
