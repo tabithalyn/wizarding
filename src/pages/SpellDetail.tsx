@@ -27,7 +27,7 @@ const SpellDetail = () => {
 
   return (
   <>
-  <div className=" bg-forestfloor w-full h-screen overflow-hidden p-0 m-0">
+  <div className=" bg-purplebrown w-full h-[90vh] overflow-hidden p-0 m-0">
     {isLoading && (
       <div className="w-full flex justify-center items-center z-20 py-10">
         <PulseLoader
@@ -41,7 +41,7 @@ const SpellDetail = () => {
     {spell.map((data:SpellType, id:number) => (
       <div key={id} className="w-full flex justify-center">
         <div className="bg-morrisgrey border border-merlot w-2/4 p-2 flex flex-wrap justify-center">
-          <p className="text-4xl text-center py-2 w-full font-lora text-oldboots">{data.name}</p>
+          <p className="text-4xl text-center py-2 w-full font-lora text-darkeggplant capitalize">{data.name}</p>
           {data.type && (
             <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
               <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Type</span>
@@ -55,15 +55,28 @@ const SpellDetail = () => {
             </p>
           )}
           {data.incantation && (
-            <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
+            <p className="text-center text-lg p-2 m-2 w-full font-karla tracking-tight">
               <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Incantation</span>
+              <i className="fa-solid fa-quote-left text-sm mr-2"></i>
               {data.incantation}
+              <i className="fa-solid fa-quote-right text-sm ml-2"></i>
             </p>
           )}
           {data.light && (
             <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
               <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Light</span>
-              {data.light}
+              <span className={`font-bold ${(
+                data.light === "Transparent" && "text-[#fefefe]" ||
+                data.light === "White" && "text-[#ffffff]" ||
+                data.light === "Red" && "text-[#af4949]" ||
+                data.light === "Orange" && "text-[#f48a50]" ||
+                data.light === "Yellow" && "text-[#fce205]" ||
+                data.light === "Green" && "text-[#308f48]" ||
+                data.light === "Blue" && "text-[#5b79b1]" ||
+                data.light === "Purple" && "text-[#6b58a8]" ||
+                data.light === "Gold" && "text-[#f4b15a]" ||
+                data.light === "Pink" && "text-[#d15e94]"
+              )}`}>{data.light}</span>
             </p>
           )}
         </div>

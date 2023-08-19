@@ -3,7 +3,7 @@ import { BASE_URL } from "../api/api";
 import axios from "axios";
 import { HousesType } from "../types";
 import { Link } from "react-router-dom";
-import { PulseLoader } from "react-spinners";
+import { DotLoader } from "react-spinners";
 
 const Houses = () => {
   const [housesData, setHousesData] = useState<HousesType[]>([]);
@@ -29,7 +29,7 @@ const Houses = () => {
     <div className="w-full h-[86vh] flex flex-wrap gap-1 justify-center items-center mt-1">
     {isLoading && (
       <div className="w-full h-[90vh] flex justify-center items-center z-20 py-10">
-        <PulseLoader
+        <DotLoader
           color="#81613b"
           size={50}
           loading={isLoading}

@@ -50,7 +50,7 @@ export default {
       "slytherin1": "#366447",
       "slytherin2": "#aaaaaa",
       "slytherin3": "#2b4d37",
-      "transparent": "transparent"
+      "transparent": "transparent",
     },
     fontFamily: {
       karla: ["Karla", "sans-serif"],
