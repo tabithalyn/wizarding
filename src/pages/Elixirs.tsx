@@ -29,7 +29,7 @@ const Elixirs = () => {
   return (
     <div className="w-full flex flex-wrap gap-2 justify-center bg-darkeggplant py-5">
     {isLoading && (
-        <div className="w-full flex justify-center items-center z-20 py-10">
+        <div className="w-full h-[90vh] flex justify-center items-center z-20 py-10">
           <DotLoader
             color="#81613b"
             size={50}
@@ -39,7 +39,7 @@ const Elixirs = () => {
       )}
     {elixirData.map((elixir:ElixirType, id) => {
       return (
-        <div key={id} className=" bg-morrisgrey flex flex-wrap border border-gray-400 p-3 w-1/4">
+        <div key={id} className="bg-morrisgrey flex flex-wrap border border-gray-400 p-3 w-1/4">
           <h5 className="w-full text-center text-xl text-rojomarron font-lora capitalize">{elixir.name}</h5>
           <div className="w-full text-center py-3">
             <Link

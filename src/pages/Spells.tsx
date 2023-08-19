@@ -4,6 +4,7 @@ import axios from "axios";
 import { SpellType } from "../types";
 import { Link } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
+import "./TransitionLink.css";
 
 const Spells = () => {
   const [spellData, setSpellData] = useState<SpellType[]>([]);
@@ -26,30 +27,29 @@ const Spells = () => {
 
 
   return (
-    <div className="w-full flex flex-wrap gap-1 justify-center">
-    <PulseLoader
-      color="rgb(96 165 250)"
-      size={30}
-      loading={isLoading}
-    />
+    <div className="w-full flex flex-wrap gap-1 justify-center bg-rich py-4">
+    {isLoading && (
+      <div className="w-full h-[90vh] flex justify-center items-center z-20 py-10">
+        <PulseLoader
+          color="#81613b"
+          size={50}
+          loading={isLoading}
+        />
+      </div>
+    )}
     {spellData.map((spell:SpellType, id) => {
       return (
-        <div key={id} className="bg-gray-200 flex flex-wrap border border-gray-400 p-3 w-1/4">
-          <h5 className="bg-blue-400 w-full">{spell.name}</h5>
-          {spell.effect && (
-            <p className="bg-cyan-400 w-full">{spell.effect}</p>
-          )}
-          {spell.characteristics && (
-            <p className="bg-indigo-300 w-full">{spell.characteristics}</p>
-          )}
-          {spell.sideEffects && (
-            <p className="bg-sky-400 w-full">{spell.sideEffects}</p>
-          )}
-          {spell.time && (
-            <p className="bg-purple-200 w-full">{spell.time}</p>
-          )}
-          <div>
-            <Link to={`/spells/${spell.id}`}>Learn More</Link>
+        <div key={id} className="bg-greyish flex flex-wrap border border-gray-400 p-3 w-1/4">
+          <h5 className="w-full text-center text-xl text-rojomarron font-lora capitalize">{spell.name}</h5>
+          <div className="w-full text-center py-3">
+            <Link
+              to={`/spells/${spell.id}`}
+              className="font-karla hover:text-merlot px-10 py-0 text-3xl before:bg-greyish before:text-lg transition-link"
+              title="Learn More"
+              data-hover="Learn More"
+            >
+              <i className="fa-solid fa-wand-magic-sparkles"></i>
+            </Link>
           </div>
         </div>
       )

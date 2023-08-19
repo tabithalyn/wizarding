@@ -27,21 +27,49 @@ const SpellDetail = () => {
 
   return (
   <>
-  <PulseLoader
-    color="rgb(96 165 250)"
-    size={30}
-    loading={isLoading}
-  />
-  <div>
+  <div className=" bg-forestfloor w-full h-screen overflow-hidden p-0 m-0">
+    {isLoading && (
+      <div className="w-full flex justify-center items-center z-20 py-10">
+        <PulseLoader
+          color="#A3533E"
+          size={30}
+          loading={isLoading}
+        />
+      </div>
+    )}
+    <div className="mt-5">
     {spell.map((data:SpellType, id:number) => (
-      <div key={id}>
-        <p>{data.name}</p>
-        <p>{data.incantation}</p>
-        <p>{data.effect}</p>
-        <p>{data.type}</p>
-        <p>{data.light}</p>
+      <div key={id} className="w-full flex justify-center">
+        <div className="bg-morrisgrey border border-merlot w-2/4 p-2 flex flex-wrap justify-center">
+          <p className="text-4xl text-center py-2 w-full font-lora text-oldboots">{data.name}</p>
+          {data.type && (
+            <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
+              <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Type</span>
+              {data.type}
+            </p>
+          )}
+          {data.effect && (
+            <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
+              <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Effect</span>
+              {data.effect}
+            </p>
+          )}
+          {data.incantation && (
+            <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
+              <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Incantation</span>
+              {data.incantation}
+            </p>
+          )}
+          {data.light && (
+            <p className="text-center p-2 m-2 w-full font-karla tracking-tight">
+              <span className="p-2 italic text-sm w-full text-center block font-lora text-purplebrown">Light</span>
+              {data.light}
+            </p>
+          )}
+        </div>
       </div>
     ))}
+    </div>
   </div>
   </>
   );

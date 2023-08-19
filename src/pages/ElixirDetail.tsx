@@ -66,7 +66,7 @@ const ElixirDetail = () => {
                 <div className="w-2/4 h-[300px] flex flex-wrap justify-center pb-4 mb-5 font-karla tracking-tight overflow-auto">
                   {data.ingredients.map((val) => (
                     <ul key={val.id} className="w-full p-1">
-                      <li className="w-full my-1 border-b border-b-latte py-2 flex flex-wrap items-center">
+                      <li className="w-full border-b border-b-latte flex flex-wrap items-center">
                         <i className="fa-regular fa-square-check mr-4"></i>
                         <span>{val.name}</span>
                       </li>
