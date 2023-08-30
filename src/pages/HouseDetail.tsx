@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 import { BASE_URL } from "../api/api";
 import { HousesType } from "../types";
@@ -45,6 +45,14 @@ const HouseDetail = () => {
       />
     </div>
   )}
+  <div className="text-left p-4 absolute left-10 top-20">
+    <button className="text-shiitake bg-nearblack py-3 px-5 hover:bg-morrisgrey hover:text-nearblack transition-all hover:transform hover:scale-105">
+      <Link to="/houses">
+        &larr;
+        <span className="font-lora italic ml-2">Back</span>
+      </Link>
+    </button>
+  </div>
   <div className={`${(
     id === "0367baf3-1cb6-4baf-bede-48e17e1cd005" && "bg-[#fffae9]" ||
     id === "85af6295-fd01-4170-a10b-963dd51dce14" && "bg-[#f4f1e8] text-hufflepuff2" ||

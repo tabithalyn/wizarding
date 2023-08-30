@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BASE_URL } from "../api/api";
 import { PulseLoader } from "react-spinners";
 import { ElixirType } from "../types";
@@ -27,7 +27,7 @@ const ElixirDetail = () => {
 
   return (
     <>
-    <div className=" bg-forestfloor w-full h-screen overflow-hidden p-0 m-0">
+    <div className="bg-darkbrown w-full h-screen overflow-hidden p-0 m-0">
       {isLoading && (
         <div className="w-full flex justify-center items-center z-20 py-10">
           <PulseLoader
@@ -38,6 +38,14 @@ const ElixirDetail = () => {
         </div>
       )}
       <div className="mt-5">
+        <div className="text-left p-4 absolute left-10 top-20">
+          <button className="text-shiitake bg-nearblack py-3 px-5 hover:bg-blackbean transition-all hover:transform hover:scale-105">
+            <Link to="/elixirs">
+              &larr;
+              <span className="font-lora italic ml-2">Back</span>
+            </Link>
+          </button>
+        </div>
         {elixirData.map((data:ElixirType, id:number) => (
           <div key={id} className="w-full flex justify-center">
             <div className="bg-shiitake border border-rich w-2/4 p-2 flex flex-wrap justify-center">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SpellType } from "../types";
 import { BASE_URL } from "../api/api";
 import axios from "axios";
@@ -37,6 +37,14 @@ const SpellDetail = () => {
         />
       </div>
     )}
+    <div className="text-left p-4 absolute left-10 top-20">
+      <button className="text-shiitake bg-nearblack py-3 px-5 hover:bg-darkbrown transition-all hover:transform hover:scale-105">
+        <Link to="/spells">
+          &larr;
+          <span className="font-lora italic ml-2">Back</span>
+        </Link>
+      </button>
+    </div>
     <div className="mt-5">
     {spell.map((data:SpellType, id:number) => (
       <div key={id} className="w-full flex justify-center">
@@ -74,8 +82,13 @@ const SpellDetail = () => {
                 data.light === "Green" && "text-[#308f48]" ||
                 data.light === "Blue" && "text-[#5b79b1]" ||
                 data.light === "Purple" && "text-[#6b58a8]" ||
+                data.light === "Violet" && "text-[#8d59c2]" ||
                 data.light === "Gold" && "text-[#f4b15a]" ||
-                data.light === "Pink" && "text-[#d15e94]"
+                data.light === "Pink" && "text-[#d15e94]" ||
+                data.light === "IcyBlue" && "text-[#6FD8E5]" ||
+                data.light === "BrightBlue" && "text-[#336cde]" ||
+                data.light === "FieryScarlet" && "text-[#de3e23]" ||
+                data.light === "Scarlet" && "text-[#de3e23]"
               )}`}>{data.light}</span>
             </p>
           )}

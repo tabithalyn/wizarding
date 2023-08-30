@@ -25,15 +25,15 @@ const Ingredients = () => {
 
 
   return (
-    <div className="w-full flex flex-wrap gap-1 justify-center">
+    <div className="w-full flex flex-wrap gap-2 justify-center p-10">
     <PulseLoader
-      color="rgb(96 165 250)"
+      color="rgb(200 187 171)"
       size={30}
       loading={isLoading}
     />
     {ingredientsData.map((ingredients:IngredientType, id) => {
       return (
-        <div key={id} className="bg-gray-200 flex flex-wrap border border-gray-400 p-3 w-1/4">
+        <div key={id} className="bg-shiitake flex flex-wrap border border-forestfloor p-4 w-1/4 font-lora hover:transform hover:scale-125 hover:shadow-lg hover:cursor-default transition-all">
           <h5 className="bg-blue-400 w-full">{ingredients.name}</h5>
         </div>
       );
